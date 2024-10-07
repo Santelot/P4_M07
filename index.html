@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook-P4-M07</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .activity {
+            margin-bottom: 30px;
+        }
+    </style>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-4').style.display = 'none';
+            }
+        }
+
+        function navigateTo(id) {
+            var element = document.getElementById(id);
+            window.scrollTo({
+                top: element.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</head>
+<body onload="updateActivities()">
+
+<div class="header">
+    <h1>Playbook-P4-M07</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+<!-- Actividad 0 -->
+<div id="activity-0" class="activity">
+    <div class="banner" onclick="toggleContent('revision_mision')">
+        <div class="title">📚 Actividad 0: Revisión de Misión ⏰ Tiempo: N/A</div>
+        <div class="subtitle">Revisar y organizar los materiales para la misión.</div>
+    </div>
+    <div id="revision_mision" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (N/A):</strong> Proyectar Diapositiva 1 y Revisar y organizar los materiales: Magic Boards, BBC Micro, Cutebot. Verificar que todo funcione correctamente.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> No se requiere diálogo en esta parte, es una fase de preparación interna del maestro antes de iniciar la clase con los estudiantes.</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 1 -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('saludo_ritual')">
+        <div class="title">🎉 Actividad 1: Saludo y Ritual Gnius Club ⏰ Tiempo: 2.5 minutos</div>
+        <div class="subtitle">Dar la bienvenida a los Genios y preparar el ambiente para el aprendizaje.</div>
+    </div>
+    <div id="saludo_ritual" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 2 ("Gnius Club").</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> ¡Buenos días, Genios! ¡Hoy tenemos una misión emocionante! Vamos a explorar cómo los robots se mueven y reaccionan usando sensores. ¿Están listos?</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 3 ("¿Cómo están?").</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> Antes de empezar, quiero saber cómo se sienten. Si están emocionados por la misión, levanten el puño. Si necesitan un poco más de energía, crucen los brazos.</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 4 ("Gracias por Asistir") y guiar a los estudiantes en el ritual.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> Ahora juntemos nuestras manos y demos gracias por lo que aprenderemos hoy. ¡Gracias por estar aquí, Genios! ¡Hoy será un gran día de aprendizaje y diversión!</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (0.5 minutos):</strong> Proyectar Diapositiva 5 ("Objetivos de la Misión").</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> Hoy tenemos tres grandes objetivos: vamos a conocer los componentes del Cutebot, aprenderemos a programar sus movimientos, y haremos paper programming.</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 2 -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('innovacion_dia')">
+        <div class="title">💡 Actividad 2: Innovación del Día ⏰ Tiempo: 2.5 minutos</div>
+        <div class="subtitle">Introducir una tecnología innovadora.</div>
+    </div>
+    <div id="innovacion_dia" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 6 ("Innovación del Día").</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> Hoy vamos a hablar de una tecnología increíble. ¡Conozcan al iRobot Roomba! Esta aspiradora robot usa sensores y microcontroladores para moverse sola. ¡Vamos a ver el video!</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (2 minutos):</strong> Proyectar Diapositiva 7 y reproducir el video del iRobot Roomba. Al finalizar, hacer preguntas para reflexionar sobre la innovación.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> ¿Qué les parece? ¿De qué otra forma creen que esta tecnología podría mejorar nuestras vidas? ¿Cuál creen que es la mayor limitación de esta innovación?</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 3 -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('brain_gym')">
+        <div class="title">🧠 Actividad 3: Brain Gym ⏰ Tiempo: 7 minutos</div>
+        <div class="subtitle">Introducir el Cutebot y sus componentes.</div>
+    </div>
+    <div id="brain_gym" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 8 ("Brain Gym") para iniciar la explicación sobre el Cutebot.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> ¡Genios, hoy vamos a mover el Cutebot y hacerlo girar! Aprenderemos cómo sus sensores y motores lo ayudan a moverse por su entorno. ¡Pongan atención, hay un Easter Egg!</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 9 ("Componentes del Cutebot"). Explicación física del robot y sus partes.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> El Cutebot tiene motores que lo mueven, sensores de línea que le permiten seguir un camino y sensores de proximidad para evitar obstáculos. ¡Vamos a verlo en acción!</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (1 minuto):</strong> Proyectar Diapositiva 10 ("Sensores en Acción") y mostrar ejemplos de cómo los sensores del Cutebot evitan obstáculos.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> Los sensores ultrasónicos del Cutebot son como sus ojos. Detectan objetos cercanos para evitar obstáculos o seguir líneas. Así es como se mueve de forma inteligente.</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (1 minuto):</strong> Proyectar Diapositiva 11 ("Agregar Bloques Cutebot") y explicar cómo agregar los bloques en MakeCode.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> Vamos a programar el Cutebot para que se mueva. Primero, abramos MakeCode. En 'Extensiones', busca Cutebot y agrégalo. Así podremos programar sus movimientos.</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 5 (1 minuto):</strong> Proyectar Diapositiva 12 ("Bloques de Movimiento") y explicar cómo programar el avance del Cutebot usando bloques.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> Ahora, vamos a hacer que nuestro Cutebot avance 1 metro usando los bloques de motores. Luego, le diremos que avance durante 2 segundos, antes de realizar otra acción.</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 6 (1 minuto):</strong> Proyectar Diapositiva 13 ("Bloques de Giro") para mostrar cómo programar el giro usando los motores del Cutebot.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> Para que gire 90 grados, usamos el bloque MOTORES CUTEBOT(-100, 100), lo que hace que un motor avance y el otro retroceda.</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 7 (1 minuto):</strong> Proyectar Diapositiva 14 ("Microcontroladores y Sensores") y explicar cómo los sensores envían datos al microcontrolador.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> El microcontrolador del Cutebot es su cerebro. Toma decisiones basadas en los datos de los sensores y controla los motores. ¡Así es como el robot 'piensa' y actúa!</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 8 (2 minutos):</strong> Proyectar Diapositiva 15 ("Programación del Reto") y guiar a los estudiantes en la creación de un programa completo para avanzar y girar.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> Ahora es su turno. Programen la simulación del Cutebot para que avance 1 metro y luego gire 90 grados.</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 4 -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('state_change')">
+        <div class="title">🚶‍♂️ Actividad 4: State Change ⏰ Tiempo: 4 minutos</div>
+        <div class="subtitle">Actividad física breve para recargar energía y mejorar la concentración.</div>
+    </div>
+    <div id="state_change" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 17 ("State Change") para anunciar la actividad física breve.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> ¡Genios, antes de continuar con el siguiente reto, vamos a movernos un poco! Esta actividad física nos ayudará a recargar energía y concentrarnos mejor. ¿Están listos?</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 18 ("Actividad Física") y guiar a los estudiantes en la actividad.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> ¡Ahora, todos en pie! Vamos a simular el movimiento de un robot. Primero, movamos los brazos como si fuéramos motores girando. ¡Hagan un giro a la derecha! Ahora a la izquierda!</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (1.5 minutos):</strong> Proyectar Diapositiva 19 ("Técnica de Respiración") para guiar a los estudiantes en la técnica de respiración.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> Vamos a hacer una respiración profunda para recargar energía. Inhalen contando hasta tres... ahora exhalen haciendo el sonido de un robot: ¡brrr! Repitámoslo tres veces.</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (0.5 minutos):</strong> Proyectar Diapositiva 20 ("Preparados para el Desafío") para finalizar la actividad física.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> ¡Muy bien, Genios! Ahora que estamos llenos de energía, es hora de concentrarnos en el siguiente reto. Respiren profundo una vez más y prepárense mentalmente para programar al Cutebot.</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 5 (0.5 minutos):</strong> Proyectar Diapositiva 21: "Revisión de Objetivos".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> ¡Genios!, revisemos los objetivos de la misión que hemos cumplido hasta ahora.</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 5 -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('team_gnius')">
+        <div class="title">🤝 Actividad 5: Team Gnius ⏰ Tiempo: 3 minutos</div>
+        <div class="subtitle">Organizar a los estudiantes en parejas y preparar los materiales.</div>
+    </div>
+    <div id="team_gnius" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar la Diapositiva 22 ("Team Gnius").</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> Genios, ahora trabajaremos en parejas. Busquen a su compañero de equipo para esta parte de la misión. ¡Tienen 30 segundos para encontrar su pareja!</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (0.5 minutos):</strong> Proyectar la Diapositiva 23 ("Organización de Parejas").</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> ¡Vamos a organizarnos! Tienen 30 segundos para encontrar su compañero de equipo. ¡Adelante!</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (1 minuto):</strong> Proyectar la Diapositiva 24 ("Recoger Magic Tablets").</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> Un integrante de cada pareja pasará al frente para recoger las Magic Tablets, microbit y Cutebot. Tienen 1 minuto para hacerlo. ¡Vamos!</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (1 minuto):</strong> Proyectar la Diapositiva 25 ("Temporizador 1 Minuto").</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> Tienen un minuto para recoger el material necesario. ¡El tiempo comienza ahora!</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 6 -->
+<div id="activity-6" class="activity">
+    <div class="banner" onclick="toggleContent('challenge')">
+        <div class="title">⚙️ Actividad 6: Challenge ⏰ Tiempo: 16 minutos</div>
+        <div class="subtitle">Realizar el reto de programación del Cutebot utilizando bloques.</div>
+    </div>
+    <div id="challenge" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 26 ("Challenge") para introducir el desafío.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> ¡Genios! Ha llegado el momento de aplicar todo lo que aprendimos. Haremos que nuestro Cutebot avance 2 metros y gire a la derecha. ¡Vamos a empezar con el Paper Programming!</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (0.5 minutos):</strong> Guiar a los estudiantes en la planificación del código en papel.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> Primero, dibujen los bloques que usarán para hacer que el Cutebot avance, gire y retroceda. Dibujen y ordenen los bloques como si estuvieran programando en la computadora. ¡Todo en las Magic Tablets!</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (5 minutos):</strong> Proyectar Diapositiva 27 ("Cronómetro de 5 Minutos") para que los estudiantes planifiquen su código en papel.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> Ahora, en equipos, dibujen los bloques y planifiquen cómo programarán el avance, giro y retroceso del Cutebot. ¡Tienen 5 minutos para planificar su programación en las Magic Tablets!</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (0.5 minutos):</strong> Finalizar el Paper Programming.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> ¡Excelente trabajo en el Paper Programming! ¿Están listos para pasar a la programación real en MakeCode?</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 5 (0.5 minutos):</strong> Sin diapositiva.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> Ahora que tenemos el plan en las Magic Tablets, es hora de trasladarlo a MakeCode y programar el Cutebot.</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 6 (10 minutos):</strong> Proyectar Diapositiva 28 ("Cronómetro de 10 Minutos") para que los estudiantes desarrollen el código en MakeCode.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> Es su turno de llevar el programa a MakeCode. Usen los bloques que planificaron en las Magic Tablets para que el Cutebot avance, gire y retroceda. ¡Tienen 10 minutos para completarlo!</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 7 (4 minutos):</strong> Proyectar Diapositiva 29 ("Revisión del Desafío") para reflexionar sobre el trabajo realizado.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> ¡Tiempo, Genios! Ahora vamos a revisar lo que han logrado. ¿Qué tal les fue? ¿Cuál fue el paso más difícil? ¿Qué aprendieron al hacer que el Cutebot se moviera y girara con precisión?</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 7 -->
+<div id="activity-7" class="activity">
+    <div class="banner" onclick="toggleContent('easter_egg')">
+        <div class="title">🎯 Actividad 7: Easter Egg ⏰ Tiempo: 5 minutos</div>
+        <div class="subtitle">Revelar el reto oculto y hacer preguntas sobre el sensor del Cutebot.</div>
+    </div>
+    <div id="easter_egg" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 30 ("Easter Egg") para anunciar el reto oculto.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> ¡Atención, Genios! Ha llegado el momento de revelar el Easter Egg. Durante la clase, escondimos un detalle técnico muy importante. ¡A ver quién lo descubrió!</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (2 minutos):</strong> Proyectar Diapositiva 31 ("Pregunta del Easter Egg") para lanzar la pregunta oculta.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> La pregunta del Easter Egg es... ¿Hasta cuánta distancia puede medir el sensor de ultrasonido del Cutebot? ¡Levanten la mano si saben la respuesta!</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (1.5 minutos):</strong> Proyectar Diapositiva 32 ("Respuesta Correcta") y reconocer a los ganadores.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> ¡Felicidades a los que respondieron correctamente! El sensor de ultrasonido puede medir hasta 1.5 metros de distancia. ¡Han descubierto el Easter Egg y ganan Mon-e!</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (1 minuto):</strong> Sin diapositiva.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> ¡Qué increíble participación, Genios! Recuerden, siempre hay sorpresas escondidas en nuestras misiones. ¡Sigamos atentos y aprendiendo! ¡Felicidades a todos los que ganaron Mon-e!</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 8 -->
+<div id="activity-8" class="activity">
+    <div class="banner" onclick="toggleContent('honor_dojo')">
+        <div class="title">🏅 Actividad 8: Honor de Dojo ⏰ Tiempo: 3 minutos</div>
+        <div class="subtitle">Motivar a los estudiantes y cerrar la clase de forma positiva.</div>
+    </div>
+    <div id="honor_dojo" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (1 minuto):</strong> Proyectar Diapositiva 33 ("Logros del Día") para motivar a los estudiantes.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> ¡Hoy hemos aprendido y trabajado juntos como verdaderos Genios! Desde programar movimientos hasta descubrir cómo los sensores ayudan a los robots a navegar. ¡Gran trabajo, Genios!</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Sin diapositiva.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> Gracias por todo su esfuerzo hoy, Genios. ¡Han completado una misión increíble! Estoy muy orgulloso de cada uno de ustedes. ¡Nos vemos en la próxima misión!</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (1 minuto):</strong> Proyectar Diapositiva 34 ("Recogida del Material") para guiar la limpieza del salón.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> Por favor, recojan todos los Micro:bit, Cutebots y Magic Boards. Guardemos todo con cuidado para que esté listo para nuestra próxima misión. ¡Gracias por cuidar nuestro Dojo!</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div> <!-- Cierre del container -->
+
+    <!-- Scripts adicionales si es necesario -->
+    <script>
+        // Agregar scripts adicionales aquí si es necesario
+    </script>
+
+    </body>
+    </html>
